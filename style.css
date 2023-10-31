@@ -1,8 +1,10 @@
-*{
-    padding: 0;margin: 0;
+* {
+    padding: 0;
+    margin: 0;
 
 }
-nav{
+
+nav {
     background-color: rgb(36, 25, 25);
     color: white;
     height: 75px;
@@ -13,23 +15,38 @@ nav{
     font-size: large;
     padding: 0 12px;
 }
+
 nav ul {
     list-style: none;
 }
-.gameContainer{
-/* background-color: red; */
-display: flex;
-justify-content: center;
-margin-top: 50px;
+
+.gameContainer {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
-.container{
-display: grid;
-grid-template-columns: repeat(3,10vw);
-grid-template-rows: repeat(3,10vw);
-font-family: Georgia, 'Times New Roman', Times, serif;
+.line {
+    width: 0vw;
+    height: 2px;
+    position: absolute;
+    background-color: rgb(7, 5, 5);
+    transition: width 1s ease-out;
+    
+
+    
 }
-.box{
+
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.box {
     border: 2px solid black;
     font-size: 8vw;
     cursor: pointer;
@@ -38,38 +55,50 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     align-items: center;
 
 }
-.box:hover{
+
+.box:hover {
     background-color: rgba(100, 113, 126, 0.377);
 }
 
 
 
-.gameInfo{
+.gameInfo {
     padding: 0 34px;
     font-family: 'Itim', cursive;
-/* font-family: 'Poppins', sans-serif; */
-/* font-family: 'Ubuntu', sans-serif; */
-/* font-size: 1.5em; */
-padding-bottom: 21px;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
+    /* font-size: 1.5em; */
+    padding-bottom: 21px;
 }
-.imgBox img{
+
+.imgBox {
+    display: flex;
+    justify-content: center;
+}
+
+.imgBox img {
     width: 0px;
     transition: width 1s ease-in-out;
+
 }
-.bl-0{
+
+.bl-0 {
     border-right: 0;
 }
-.br-0{
+
+.br-0 {
     border-left: 0;
 }
-.bt-0{
+
+.bt-0 {
     border-top: 0;
 }
-.bb-0{
+
+.bb-0 {
     border-bottom: 0;
 }
 
-#reset{
+#reset {
     margin: 0 10px;
     padding: 5px 15px;
     border-radius: 10px;
@@ -79,48 +108,60 @@ padding-bottom: 21px;
     font-weight: 700;
 }
 
+/* responsive */
+
 
 @media (max-width: 628px) {
-   .gameContainer{
-    flex-direction: column-reverse;
-    display: flex;
-    justify-content: center;
-    .gameInfo h1{
-        padding-top: 30px;
-        /* font-size: 1.5rem; */
+    .gameContainer {
+        flex-direction: column-reverse;
         display: flex;
         justify-content: center;
-        padding-bottom: 20px;
+
+        .gameInfo h1 {
+            padding-top: 30px;
+            /* font-size: 1.5rem; */
+            display: flex;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .imgBox img {
+            width: 0%;
+
+        }
     }
-.imgBox img{
-    float: left;
+
+    .container {
+        justify-content: center;
+        padding-top: 50px;
+        /* display: grid; */
+        grid-template-columns: repeat(3, 18vw);
+        grid-template-rows: repeat(3, 18vw);
+        /* font-family: Georgia, 'Times New Roman', Times, serif; */
+
+
+    }
+
+    #reset {
+        font-size: 15px;
+        float: right;
+    }
+
+    .info {
+        float: left;
+
+    }
+
+    .box {
+        font-size: 14vw;
+    }
+    .line{
+        display: none;
+    }
 }
-   }
-   .container{
-    justify-content: center;
-    padding-top: 50px;
-    /* display: grid; */
-grid-template-columns: repeat(3,18vw);
-grid-template-rows: repeat(3,18vw);
-/* font-family: Georgia, 'Times New Roman', Times, serif; */
-    
 
-   }
-   #reset{
-    font-size: 15px;
-    float: right;
-   }
-   .info{
-    float: left;
-
-   }
-   .box{
-    font-size: 14vw;
-   }
-  }
-  
-  @media (max-width: 426px){
-    .gameInfo h1{
-font-size: 1.3rem;
+@media (max-width: 426px) {
+    .gameInfo h1 {
+        font-size: 1.3rem;
     }
-  }
+}
